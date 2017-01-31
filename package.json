@@ -17,7 +17,7 @@
     "notifications"
   ],
   "dependencies": {
-	"request-promise": "^4.1.1",
+    "request-promise": "^4.1.1",
     "rxjs": "^5.0.3"
   },
   "peerDependencies": {
@@ -28,5 +28,10 @@
   "bugs": {
     "url": "https://github.com/rixlabs/hubot-githubfollow/issues"
   },
-  "homepage": "https://github.com/rixlabs/hubot-githubfollow#readme"
+  "homepage": "https://github.com/rixlabs/hubot-githubfollow#readme",
+  "devDependencies": {
+    "hubot-test-helper": "^1.5.1",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.7"
+  }
 }
