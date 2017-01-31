@@ -3,9 +3,9 @@ rp = require('request-promise');
 
 var key = ''
 try {
-  key = process.env.GHS_KEY
+  key = process.env.GHF_KEY
 } catch (e) {
-  throw new Error('The environment variable "GHS_KEY" is required');
+  throw new Error('The environment variable "GHF_KEY" is required');
 }
 
 
@@ -17,7 +17,6 @@ module.exports = (robot) => {
             robot.logger.debug('NEW REPO -> '+msg.match[1])
             newSub = {subscribers:[msg.envelope.room]};
             roomsSubscriptions[msg.match[1]]=newSub;
-            //allRepos.push(msg.match[1])
         }
         else{
             updateSub = roomsSubscriptions[msg.match[1]];
@@ -116,8 +115,6 @@ module.exports = (robot) => {
         return action
     }
 
-    //allRepos = ['rixlabs/springboot-sandbox','rixlabs/mover','rixlabs/github-sub']
-    allRepos = ['rixlabs/springboot-sandbox']
     goodEvents = ['WatchEvent','PushEvent','ForkEvent']
 
 
