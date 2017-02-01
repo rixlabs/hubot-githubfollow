@@ -19,7 +19,7 @@ npm install --save hubot-githubfollow
 `request` is defined as a peer-dependency of *request-promise* and thus has to be installed separately.
 
 
-Add **hubot-githubfollow** to your `hubot-scripts.json`:
+Add **hubot-githubfollow** to your `external-scripts.json`:
 
 
 ## Things to do:
