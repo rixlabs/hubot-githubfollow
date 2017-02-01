@@ -1,6 +1,6 @@
 {
   "name": "hubot-githubfollow",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Hubot script for follow github repos and get notifications",
   "repository": {
     "type": "git",
