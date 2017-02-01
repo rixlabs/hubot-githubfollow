@@ -12,15 +12,27 @@ It was in JS and I flash ported in coffee so it's really ugly :smile:
 This module is installed via npm:
 
 ```
-npm install --save request
 npm install --save hubot-githubfollow
 ```
 
-`request` is defined as a peer-dependency of *request-promise* and thus has to be installed separately.
-
-
 Add **hubot-githubfollow** to your `external-scripts.json`:
 
+```json
+[
+  "hubot-githubfollow"
+]
+```
+
+## Sample Interaction
+
+```
+user1>> hubot follow github/hubot
+hubot>> Done
+```
+
+## NPM Module
+
+[https://www.npmjs.com/package/hubot-githubfollow](https://www.npmjs.com/package/hubot-githubfollow)
 
 ## Things to do:
 - [ ] Implement unfollow
