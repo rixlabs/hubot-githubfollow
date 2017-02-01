@@ -1,14 +1,29 @@
+# Description:
+#   Hubot script for follow github repos and get events notifications 
+#
+# Dependencies:
+#   None outside node dependencies
+#
+# Configuration:
+#   You need to configure the GHF_KEY environement variable to a valid github Personal access tokens
+#
+# Commands:
+#   hubot follow <githubrepo> - start to follow a github repository - eg. github/hubot
+#
+# Author:
+#   rixlabs
+#
+
 Rx = require 'rxjs/Rx'
 rp = require 'request-promise'
 
 
-
-key = process.env.GHS_KEY
-unless key
-      throw 'The environment variable "TELEGRAM_TOKEN" is required.'
-
-
 module.exports = (robot) ->
+    key = process.env.GHF_KEY
+    unless key
+        robot.emit 'error', new Error 'The environment variable "GHF_KEY" is required.'
+        process.exit(1)
+
     robot.respond /follow (.*)/i, (msg) ->
         robot.logger.debug(roomsSubscriptions)
 
@@ -34,14 +49,12 @@ module.exports = (robot) ->
             headers: {'Authorization': 'token '+key, 'User-Agent': ''}
             json: true
             
-        console.log("call githubapi")
         promise = rp(options)
         
         return Rx.Observable.fromPromise(promise);
 
 
     checkFilter = (event) ->
-        console.log('*********'+event+'*********')
         if lastRposStatus[event.repo.name] != undefined
             if event.id != lastRposStatus[event.repo.name].id
                 robot.logger.debug('CHECK -> changed')
@@ -98,9 +111,8 @@ module.exports = (robot) ->
 
 
     roomsSubscriptions = {}
-    roomsSubscriptions['rixlabs/springboot-sandbox']= { subscribers:['23607009']}
-    roomsSubscriptions['rixlabs/mover']= { subscribers:['23607009']}
-    roomsSubscriptions['rixlabs/github-sub']= { subscribers:['23607009']}
+    roomsSubscriptions['rixlabs/hubot-githubfollow']= { subscribers:['Shell']}
+
     #roomsSubscriptions = [];
 
     lastRposStatus = {}

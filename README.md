@@ -1,8 +1,21 @@
 # Hubot githubfollow
 
-Hubot script for follow github repos and get notifications.
+Hubot script for follow github repos and get events notification.
 
-Embrional phase, hope to publish it to npm soon.
+### Main features
+- The bot actually "waits" for stars, push and fork of a repo.
+- The bot can manage to be invited in multiple rooms.
+- The bot output is formatted in Markdown.
+
+### Things to do:
+- [ ] Implement unfollow
+- [ ] Use brain(now is all in memory)
+- [ ] Implement unit test
+- [ ] Use Etag for checking changes
+- [ ] Manage multiple changes during the interval
+
+
+Embrional phase, really raw implementation. For me it was a rxjs workbench
 
 It was in JS and I flash ported in coffee so it's really ugly :smile:
 
@@ -23,6 +36,8 @@ Add **hubot-githubfollow** to your `external-scripts.json`:
 ]
 ```
 
+In order to call github api you have to define `GHF_KEY` environement variable with a valid github Personal access tokens
+
 ## Sample Interaction
 
 ```
@@ -34,9 +49,74 @@ hubot>> Done
 
 [https://www.npmjs.com/package/hubot-githubfollow](https://www.npmjs.com/package/hubot-githubfollow)
 
-## Things to do:
-- [ ] Implement unfollow
-- [ ] Use brain(now is all in memory)
-- [ ] Implement unit test
 
-Any help is welcome
+## Contributing
+
+Any help is welcome, I don't have a strategy right now.
+
+If you like to help follow this steps for configuring your development environment.
+
+Clone this repository
+
+```
+git clone https://github.com/rixlabs/hubot-githubfollow.git
+```
+
+To intall all dependencies do:
+
+```
+npm install
+```
+
+To run tests, type:
+
+```
+npm test
+```
+
+If you want to try the script inside your hubot do:
+
+Inside the huot-githubfollow directory
+
+```
+npm link 
+```
+
+Inside your hubot directory type:
+
+```
+npm link hubot-githubfollow
+```
+
+Add hubot-githufollow to the `external-scripts.json` of your hubot:
+
+```json
+[
+  "hubot-githubfollow"
+]
+```
+
+Set the GHF_KEY environment variable
+
+```
+export GHF_KEY=<github Personal access tokens>
+```
+
+Startup your hubot with:
+
+```
+bin/hubot
+```
+
+To cleanup after tests, cd to the root of your hubot and type:
+
+```
+npm unlink hubot-githubfollow
+```
+
+and then cd to the hubot-githubfollow root and do:
+
+```
+npm unlink
+```
+
