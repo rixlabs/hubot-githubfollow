@@ -1,6 +1,8 @@
 # Hubot githubfollow
 
 Hubot script for follow github repos and get events notification.
+This project is based on polling the REST API so this script can monitor all the public repositories on github without web hooks.
+Obviously it isn't the best solution but it offers more possibility without owning the repos.
 
 ### Main features
 - The bot actually "waits" for stars, push and fork of a repo.
