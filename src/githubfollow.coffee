@@ -5,7 +5,7 @@
 #   None outside node dependencies
 #
 # Configuration:
-#   You need to configure the GHF_KEY environement variable to a valid github Personal access tokens
+#   You need to configure the GHF_KEY environement variable with a valid github Personal access tokens
 #
 # Commands:
 #   hubot follow <githubrepo> - start to follow a github repository - eg. github/hubot
